@@ -13,7 +13,7 @@ export const UserDropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="w-full gap-2 justify-start px-2">
+        <Button variant="ghost" className="flex-1 gap-2 justify-start px-2">
           <Avatar className="size-7 block">
             <AvatarImage src="https://github.com/pabloxt14.png" />
             <AvatarFallback>PA</AvatarFallback>

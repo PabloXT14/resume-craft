@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Nunito, Nunito_Sans } from 'next/font/google'
 import './globals.css'
+
 import { cn } from '@/lib/utils'
+import { ThemeProvider } from '@/components/shared/theme-provider'
 
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
@@ -24,13 +26,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
         className={cn(
           `${nunitoSans.variable} ${nunito.variable} min-h-screen bg-background text-foreground font-sans antialiased`
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
